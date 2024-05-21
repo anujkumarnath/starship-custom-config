@@ -1,54 +1,30 @@
-# ~/.config/starship.toml
-
-# Inserts a blank line between shell prompts
-add_newline = true
-
-# Change command timeout from 500 to 1000 ms
-command_timeout = 1000
-
-# Change the default prompt format
-format = """\
-[╭╴](238)$env_var\
-$all[╰─](238)$character"""
-# 
-# Change the default prompt characters
-[character]
-success_symbol = "[](238)"
-error_symbol = "[](238)"
-
-# Shows an icon that should be included by zshrc script based on the distribution or os
-[env_var.STARSHIP_DISTRO]
-format = '[$env_value](bold yellow)'
-variable = "STARSHIP_DISTRO"
-disabled = false
-
-# Shows the username
 [username]
-style_user = "white"
-style_root = "white"
-format = "[$user]($style) "
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style)'
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = "on [$hostname](bold yellow) "
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+trim_at = '.companyname.com'
 disabled = false
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-home_symbol = " ~"
+home_symbol = "🏠 ~"
 read_only_style = "197"
 read_only = "  "
 format = "at [$path]($style)[$read_only]($read_only_style) "
 
-[git_branch]
-symbol = " "
-format = "[$symbol$branch]($style) "
-truncation_length = 12
-truncation_symbol = "…/"
-style = "bold green"
+# [git_branch]
+# symbol = " "
+# format = "[$symbol$branch]($style) "
+# truncation_length = 12
+# truncation_symbol = "…/"
+# style = "bold green"
 
 [git_status]
 format = '[\($all_status$ahead_behind\)]($style) '
@@ -65,38 +41,143 @@ staged = '[++\($count\)](green)'
 renamed = "襁 "
 deleted = " "
 
-#[terraform]
-#format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
-#
-#[vagrant]
-#format = "via [ vagrant $version]($style) "
-#
-#[docker_context]
-#format = "via [ $context](bold blue) "
-#
-#[helm]
-#format = "via [ $version](bold purple) "
-#
-#[python]
-#symbol = " "
-#python_binary = "python3"
-#
+[os.symbols]
+Linux = " "
+Ubuntu = " "
+Windows = "󰍲 "
+
 [package]
 disabled = true
 
+[bun]
+format = "via [$symbol]($style)"
+
+[buf]
+format = "via [$symbol]($style)"
+
+[cmake]
+format = "via [$symbol]($style)"
+
+[cobol]
+format = "via [$symbol]($style)"
+
+[crystal]
+format = "via [$symbol]($style)"
+
+[daml]
+format = "via [$symbol]($style)"
+
+[dart]
+format = "via [$symbol]($style)"
+
+[deno]
+format = "via [$symbol]($style)"
+
+[dotnet]
+format = "[$symbol(🎯 $tfm )]($style)"
+
+[elixir]
+format = 'via [$symbol]($style)'
+
+[elm]
+format = 'via [$symbol]($style)'
+
+[erlang]
+format = 'via [$symbol]($style)'
+
+[fennel]
+format = 'via [$symbol]($style)'
+
+[gleam]
+format = 'via [$symbol]($style)'
+
+[golang]
+format = 'via [$symbol]($style)'
+
+[gradle]
+format = 'via [$symbol]($style)'
+
+[haxe]
+format = 'via [$symbol]($style)'
+
+[helm]
+format = 'via [$symbol]($style)'
+
+[java]
+format = 'via [$symbol]($style)'
+
+[julia]
+format = 'via [$symbol]($style)'
+
+[kotlin]
+format = 'via [$symbol]($style)'
+
+[lua]
+format = 'via [$symbol]($style)'
+
+[meson]
+format = 'via [$symbol]($style)'
+
+[nim]
+format = 'via [$symbol]($style)'
+
 [nodejs]
-format = "via [ $version](bold green) "
+format = 'via [$symbol]($style)'
 disabled = true
-#
-#[ruby]
-#format = "via [ $version]($style) "
-#
-#[kubernetes]
-#format = 'via [ﴱ $context\($namespace\)](bold purple) '
-#disabled = false
-#[kubernetes.context_aliases]
-#"do-fra1-prod-k8s-clcreative" = " lgcy-1"
-#"infra-home-kube-prod-1" = " prod-1"
-#"infra-home-kube-prod-2" = " prod-2"
-#"infra-cloud-kube-prod-1" = " prod-1"
-#"infra-cloud-kube-test-1" = " test-1"
+
+[ocaml]
+format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
+
+[opa]
+format = 'via [$symbol]($style)'
+
+[perl]
+format = 'via [$symbol]($style)'
+
+[php]
+format = 'via [$symbol]($style)'
+
+[pulumi]
+format = 'via [$symbol$stack]($style)'
+
+[purescript]
+format = 'via [$symbol]($style)'
+
+[python]
+format = 'via [$symbol]($style)'
+
+[quarto]
+format = 'via [$symbol]($style)'
+
+[raku]
+format = 'via [$symbol]($style)'
+
+[red]
+format = 'via [$symbol]($style)'
+
+[rlang]
+format = 'via [$symbol]($style)'
+
+[ruby]
+format = 'via [$symbol]($style)'
+
+[rust]
+format = 'via [$symbol]($style)'
+
+[solidity]
+format = 'via [$symbol]($style)'
+
+[typst]
+format = 'via [$symbol]($style)'
+
+[swift]
+format = 'via [$symbol]($style)'
+
+[vagrant]
+format = 'via [$symbol]($style)'
+
+[vlang]
+format = 'via [$symbol]($style)'
+
+[zig]
+format = 'via [$symbol]($style)'
